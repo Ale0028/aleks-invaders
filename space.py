@@ -4,7 +4,7 @@ import random
 pygame.mixer.pre_init(44100,-16,2,512)
 pygame.mixer.init()
 
-foe1=pygame.image.load('Stoos.LargeAlien.png')
+foe1=pygame.image.load('LargeAlien.png')
 foe1=pygame.transform.scale(foe1,(47,34))
 foe2=pygame.image.load('alien2.png')
 foe2=pygame.transform.scale(foe2,(47,34))
