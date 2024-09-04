@@ -144,23 +144,38 @@ class UFO(pygame.sprite.Sprite):
 		self.rect=self.image.get_rect()
 		self.rect.center=[x,y]
 		self.flydirect=1
-		self.moving=1
+		self.stopdirect=1
+		self.moving=0
 		self.ufo_wait=pygame.time.get_ticks()
 		self.cool=5000
-
+		self.resplode=0
 	def update(self):
 
-		if len(alien_group)<=12 and self.ufo_wait<self.cool:
-			self.rect.x+=3.5*self.flydirect
+		if len(alien_group)<=12:
+			self.rect.x+=5*self.flydirect
 			if self.rect.left>(screen_width) or self.rect.right<0:
-				
 				self.flydirect*=-1
+
 				print(self.ufo_wait)
 
 		else:
 			self.ufo_wait=pygame.time.get_ticks()
 			self.cool+=100
 			print(self.cool)
+		if pygame.sprite.spritecollide(self,bullet_group,True):
+			self.kill()
+			explosi= explosion(self.rect.centerx, self.rect.centery,3)
+			explosion_group.add(explosi)
+			while self.resplode<=4:
+				explo_sound.play()
+				
+				self. resplode+=1      
+			explosion_group.add(explosi) 
+			if spaceship.health_remain!=3:
+				spaceship.health_remain+=1
+			
+			
+
 
 
 	
