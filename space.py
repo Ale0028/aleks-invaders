@@ -152,7 +152,7 @@ class UFO(pygame.sprite.Sprite):
 	def update(self):
 
 		if len(alien_group)<=12:
-			self.rect.x+=5*self.flydirect
+			self.rect.x+=7*self.flydirect
 			if self.rect.left>(screen_width) or self.rect.right<0:
 				self.flydirect*=-1
 

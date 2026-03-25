@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Canvas experiment</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <script type="application/javascript">
+      function draw() {
+        const canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+          const ctx = canvas.getContext("2d");
+
+          ctx.beginPath()
+          ctx.moveTo(100,175)
+          ctx.lineTo(150, 135);
+          ctx.arcTo(200, 200,400,300,1);
+          ctx.stroke()
+
+        }
+      }
+      draw();
+    </script>
+  </body>
+</html>
